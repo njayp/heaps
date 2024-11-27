@@ -50,7 +50,7 @@ func TestGenericHeap(t *testing.T) {
 	}
 
 	// init an existing heap. it's faster
-	personHeap := NewGenericHeap(func(a, b Person) bool { return a.Age > b.Age },
+	personHeap := NewGenericHeap(func(a, b Person) bool { return a.Age < b.Age },
 		Person{Name: "Alice", Age: 30},
 		Person{Name: "Bob", Age: 25},
 		Person{Name: "Charlie", Age: 35},
