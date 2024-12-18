@@ -25,15 +25,6 @@ func TestHeap_Push(t *testing.T) {
 	expectPop(t, h, 3)
 }
 
-// TestHeap_Pop tests the Pop method of the heap.
-func TestHeap_Pop(t *testing.T) {
-	h := NewMinHeap(3, 1, 2)
-
-	expectPop(t, h, 1)
-	expectPop(t, h, 2)
-	expectPop(t, h, 3)
-}
-
 // TestHeap_Init tests the initialization of the heap.
 func TestHeap_Init(t *testing.T) {
 	h := NewMinHeap(3, 1, 2)

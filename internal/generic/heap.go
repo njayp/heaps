@@ -1,24 +1,17 @@
 package generic
 
-import "container/heap"
+// NewHeapImpl creates and initializes a new HeapImpl
+func NewHeapImpl[T any](less func(a, b T) bool, initialData ...T) *HeapImpl[T] {
+	return &HeapImpl[T]{
+		less: less,
+		data: initialData,
+	}
+}
 
-// HeapImpl is a generic heap structure.
+// HeapImpl impl the heap interface.
 type HeapImpl[T any] struct {
 	data []T
 	less func(a, b T) bool // Comparison function to determine heap order
-}
-
-// NewHeapImpl impl the heap interface
-func NewHeapImpl[T any](less func(a, b T) bool, initialData ...T) *HeapImpl[T] {
-	h := &HeapImpl[T]{
-		less: less,
-	}
-	if len(initialData) > 0 {
-		h.data = initialData
-		heap.Init(h) // Initialize heap with prefilled data
-	}
-
-	return h
 }
 
 func (h HeapImpl[T]) Len() int           { return len(h.data) }

@@ -8,7 +8,6 @@ func NewHeap[T any](h heap.Interface) *Heap[T] {
 	return &Heap[T]{h: h}
 }
 
-// use function to init
 type Heap[T any] struct {
 	h heap.Interface
 }
