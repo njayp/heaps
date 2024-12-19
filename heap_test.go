@@ -20,16 +20,20 @@ func TestMinHeap(t *testing.T) {
 	expect(t, h.Size, 3)
 	expect(t, h.Peek, 1)
 	expect(t, h.Pop, 1)
-	expect(t, h.Size, 2)
 	expect(t, h.Peek, 3)
 
-	h.Push(1)
 	h.Push(2)
+	h.Push(5)
 
 	expect(t, h.Size, 4)
-	expect(t, h.Peek, 1)
-	expect(t, h.Pop, 1)
-	expect(t, h.Peek, 2)
+	expect(t, h.Pop, 2)
+	expect(t, h.Peek, 3)
+	expect(t, h.Pop, 3)
+	expect(t, h.Peek, 4)
+	expect(t, h.Pop, 4)
+	expect(t, h.Peek, 5)
+	expect(t, h.Pop, 5)
+	expect(t, h.Size, 0)
 }
 
 func TestMaxHeap(t *testing.T) {
@@ -39,4 +43,5 @@ func TestMaxHeap(t *testing.T) {
 	expect(t, h.Pop, 2)
 	expect(t, h.Pop, 1)
 	expect(t, h.Pop, 0)
+	expect(t, h.Size, 0)
 }
