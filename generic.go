@@ -15,9 +15,8 @@ func (h *genericHeapImpl[T]) Push(x interface{}) {
 }
 
 func (h *genericHeapImpl[T]) Pop() interface{} {
-	old := h.data
-	n := len(old)
-	x := old[n-1]
-	h.data = old[:n-1]
+	n := h.Len()
+	x := h.data[n-1]
+	h.data = h.data[:n-1]
 	return x
 }
