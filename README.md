@@ -1,5 +1,5 @@
 # Heaps
-## Some Boilerplate Code for Heaps
+## Motivation
 The goal is to build upon `container/heap` for easier usage. Specifically: 
 
 - remove the need for boilerplate code
@@ -8,7 +8,6 @@ The goal is to build upon `container/heap` for easier usage. Specifically:
 To accomplish this, this library implements a generic array that satisfies the `heap` interface. This array is then wrapped with `container/heap` functionality.
 
 ## Instillation
-
 ```sh
 go get github.com/njayp/heaps
 ```
@@ -17,34 +16,34 @@ go get github.com/njayp/heaps
 Create a heap of custom structs
 
 ```go
-    // define custom struct
-	type item struct {
-		value int
-	}
+// define custom struct
+type item struct {
+	value int
+}
 
-    // a function for comparing structs
-    less := func(a, b item) bool {
-		return a.value < b.value
-	}
+// a function for comparing structs
+less := func(a, b item) bool {
+	return a.value < b.value
+}
 
-    // init heap with data
-	heap := heaps.NewHeap(less, 
-    item{value: 1},
-    item{value: 2},
-    )
+// init heap with data
+heap := heaps.NewHeap(less, 
+item{value: 1},
+item{value: 2},
+)
 
-    // use heap
-	min := heap.Pop() // item{value: 1}
+// use heap
+min := heap.Pop() // item{value: 1}
 ```
 
 Or use a preset heap
 
 ```go
-    // init heap with data
-    heap := heaps.NewMaxHeap(0, 1, 2)
+// init heap with data
+heap := heaps.NewMaxHeap(0, 1, 2)
 
-    // use heap
-	max := heap.Pop() // 2
+// use heap
+max := heap.Pop() // 2
 ```
 
 ## Additional Functionality
